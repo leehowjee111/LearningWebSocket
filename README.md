@@ -3,8 +3,16 @@
 ##### 编译
 g++ -g socket_test.cpp -o socket_test -lcrypto -lpthread
 
-##### 运行
+##### 运行与测试
 ./socket_test 启动服务器
+
+然后打开浏览器，网址导航栏输入about:blank，按下F12，打开控制台，输入:
+
+const ws = new WebSocket("ws://localhost:8080");
+
+ws.onmessage = e => console.log(e.data);
+
+ws.onopen = ()=> ws.send("大家好");
 
 ##### 实现功能
 socket_init 创建一个socket并监听客户端连接
